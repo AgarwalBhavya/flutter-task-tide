@@ -1,5 +1,6 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const NotFound = () => {
   const location = useLocation();
@@ -12,13 +13,18 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div className="min-h-screen flex items-center justify-center bg-flutter-background">
+      <div className="text-center animate-fade-in">
+        <div className="bg-white p-8 rounded-3xl shadow-flutter border border-flutter-primary/10 max-w-md">
+          <h1 className="text-6xl font-bold text-flutter-primary mb-4">404</h1>
+          <p className="text-xl text-flutter-text mb-6">Oops! This page doesn't exist</p>
+          <Button 
+            asChild
+            className="bg-flutter-primary hover:bg-flutter-secondary text-white rounded-xl py-6 h-12 transition-all flutter-button"
+          >
+            <Link to="/">Return to Dashboard</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
